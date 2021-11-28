@@ -1,0 +1,90 @@
+body {
+    background-image: url("./bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.container {
+   display: grid;
+   width: 96%;
+   max-width: 900px;
+   margin: 2% auto;
+
+    font-size: larger;
+    color:rgb(14, 56, 94);
+
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: auto;
+   grid-gap: 25px;
+    
+   grid-template-areas:    "t        t       t"
+                           "d23      d20     d12"
+                           "d2       d14     d4"
+                           "d5       d22     d16"
+                           "d1       d7      d9"
+                           "d10      d11     d18"
+                           "d13      d3      d15"
+                           "d6       d17     d8"
+                           "d19      d24     d21";
+}
+
+/* media query */
+@media only screen and (min-width: 500px) {
+    .container {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas: "t     t     t     d2      d7      d8"
+                             "t     t     t     d4      d11     d12"
+                             "t     t     t     d19     d9      d13"
+                             "d6    d1    d24   d24     d21     d20"
+                             "d17   d18   d24   d24     d5      d22"
+                             "d3    d23   d16   d14     d10     d15";
+    }
+}
+
+.item {
+    background: #43a79e11;
+    padding: 40px;
+    border: 2px dashed transparent;
+}
+
+.item:hover {
+    border-color: #385052;
+}
+
+@font-face {
+  font-family: Merriweather;
+  src: url("Merriweather-Regular.ttf");
+}
+
+.modal {
+    display: none;
+    position: fixed; 
+    padding-top: 50px;
+    left: 0; 
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: relative; 
+    background-color: white;
+    padding: 20px; 
+    margin: auto; 
+    width: 75%;  
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
